@@ -60,7 +60,59 @@ function runNumberBenchmark(): BenchmarkResult {
     const start = performance.now();
     let num = 0;
     for (let i = 0; i < runs; i++) {
-      num = ExpoModule.addNumbers(num, 5);
+      const r = ExpoModule.addNumbers(num, 5);
+      if (r !== num + 5) {
+        throw new Error('ExpoModule.addNumbers returned an incorrect value');
+      }
+      num = r;
+    }
+    const end = performance.now();
+    expoTime = end - start;
+    console.log(`ExpoModule took ${expoTime.toFixed(2)}ms to run addNumbers(...) ${runs}x!`);
+  }
+
+  let turboTime = 0;
+  if (TurboModule) {
+    TurboModule.addNumbers(0, 1);
+
+    const start = performance.now();
+    let num = 0;
+    for (let i = 0; i < runs; i++) {
+      num = TurboModule.addNumbers(num, 5);
+    }
+    const end = performance.now();
+    turboTime = end - start;
+    console.log(`TurboModule took ${turboTime.toFixed(2)}ms to run addNumbers(...) ${runs}x!`);
+  }
+
+  let bridgeTime = 0;
+  {
+    const start = performance.now();
+    let num = 0;
+    for (let i = 0; i < runs; i++) {
+      num = BridgeModule.addNumbers(num, 5);
+    }
+    const end = performance.now();
+    bridgeTime = end - start;
+    console.log(`BridgeModule took ${bridgeTime.toFixed(2)}ms to run addNumbers() ${runs}x!`);
+  }
+
+  return { expoTime, turboTime, bridgeTime };
+}
+
+function runNumberOptimizedBenchmark(): BenchmarkResult {
+  let expoTime = 0;
+  {
+    ExpoModule.addNumbersOptimized(0, 1);
+
+    const start = performance.now();
+    let num = 0;
+    for (let i = 0; i < runs; i++) {
+      const r = ExpoModule.addNumbersOptimized(num, 5);
+      if (r !== num + 5) {
+        throw new Error('ExpoModule.addNumbers returned an incorrect value');
+      }
+      num = r;
     }
     const end = performance.now();
     expoTime = end - start;
@@ -211,12 +263,14 @@ export default function ModulesBenchmarksScreen() {
 
   const [voidTimes, setVoidTimes] = useState<BenchmarkResult | null>(null);
   const [numberTimes, setNumberTimes] = useState<BenchmarkResult | null>(null);
+  const [numberTimes2, setNumberTimes2] = useState<BenchmarkResult | null>(null);
   const [stringTimes, setStringTimes] = useState<BenchmarkResult | null>(null);
   const [arrayTimes, setArrayTimes] = useState<BenchmarkResult | null>(null);
 
   const startBenchmarks = useCallback(() => {
     setVoidTimes(runVoidBenchmark());
     setNumberTimes(runNumberBenchmark());
+    setNumberTimes2(runNumberOptimizedBenchmark());
     setStringTimes(runStringsBenchmark());
     setArrayTimes(runArrayBenchmark());
   }, []);
@@ -225,6 +279,7 @@ export default function ModulesBenchmarksScreen() {
     <View style={[styles.container, { backgroundColor: theme.background.screen }]}>
       <BenchmarkResultContainer functionName="nothing" result={voidTimes} />
       <BenchmarkResultContainer functionName="addNumbers" result={numberTimes} />
+      <BenchmarkResultContainer functionName="addNumbersOptimized" result={numberTimes2} />
       <BenchmarkResultContainer functionName="addStrings" result={stringTimes} />
       <BenchmarkResultContainer functionName="foldArray" result={arrayTimes} />
 
