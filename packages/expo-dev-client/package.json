@@ -5,17 +5,11 @@
   "main": "build/DevClient.js",
   "types": "build/DevClient.d.ts",
   "exports": {
-    ".": {
-      "types": "./build/DevClient.d.ts",
-      "default": "./build/DevClient.js"
-    },
-    "./plugin": {
-      "types": "./plugin/build/withDevClient.d.ts",
-      "default": "./plugin/build/withDevClient.js"
-    },
+    ".": "./build/DevClient.js",
     "./package.json": "./package.json",
-    "./*": "./*.js",
-    "./*.js": "./*.js"
+    "./app.plugin": "./app.plugin.js",
+    "./app.plugin.js": "./app.plugin.js",
+    "./plugin": "./plugin/build/index.js"
   },
   "scripts": {
     "build": "expo-module build",

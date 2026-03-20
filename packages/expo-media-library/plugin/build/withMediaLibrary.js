@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.plugin = void 0;
 exports.modifyAndroidManifest = modifyAndroidManifest;
 const config_plugins_1 = require("expo/config-plugins");
 const pkg = require('expo-media-library/package.json');
@@ -47,5 +46,4 @@ const withMediaLibrary = (config, { photosPermission, savePhotosPermission, isAc
     }
     return withMediaLibraryExternalStorage(config);
 };
-exports.plugin = (0, config_plugins_1.createRunOncePlugin)(withMediaLibrary, pkg.name, pkg.version);
-exports.default = (props = {}) => [pkg.name, props];
+exports.default = (0, config_plugins_1.createRunOncePlugin)(withMediaLibrary, pkg.name, pkg.version);

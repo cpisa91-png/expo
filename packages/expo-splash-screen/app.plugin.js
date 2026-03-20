@@ -1,2 +1,1 @@
-const { plugin } = require('./plugin/build/withSplashScreen');
-module.exports = plugin;
+module.exports = require('./plugin/build/withSplashScreen');

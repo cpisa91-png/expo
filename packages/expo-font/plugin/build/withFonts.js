@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.plugin = void 0;
 const config_plugins_1 = require("expo/config-plugins");
 const withFontsAndroid_1 = require("./withFontsAndroid");
 const withFontsIos_1 = require("./withFontsIos");
@@ -19,5 +18,4 @@ const withFonts = (config, props) => {
     }
     return config;
 };
-exports.plugin = (0, config_plugins_1.createRunOncePlugin)(withFonts, pkg.name, pkg.version);
-exports.default = (props = {}) => [pkg.name, props];
+exports.default = (0, config_plugins_1.createRunOncePlugin)(withFonts, pkg.name, pkg.version);

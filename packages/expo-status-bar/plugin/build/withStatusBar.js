@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.plugin = exports.withStatusBarExpoGoManifest = exports.setIOSStatusBarInfoPlist = exports.setAndroidStrings = exports.setAndroidStatusBarStyles = exports.resolveAndroidLegacyProps = void 0;
+exports.withStatusBarExpoGoManifest = exports.setIOSStatusBarInfoPlist = exports.setAndroidStrings = exports.setAndroidStatusBarStyles = exports.resolveAndroidLegacyProps = void 0;
 const config_plugins_1 = require("expo/config-plugins");
 const pkg = require('expo-status-bar/package.json');
 // strings.xml keys, this should not change.
@@ -97,5 +97,4 @@ const withStatusBar = (config, props) => {
     config = withIOSStatusBarInfoPlist(config, props);
     return (0, exports.withStatusBarExpoGoManifest)(config, props);
 };
-exports.plugin = (0, config_plugins_1.createRunOncePlugin)(withStatusBar, pkg.name, pkg.version);
-exports.default = (props = {}) => [pkg.name, props];
+exports.default = (0, config_plugins_1.createRunOncePlugin)(withStatusBar, pkg.name, pkg.version);

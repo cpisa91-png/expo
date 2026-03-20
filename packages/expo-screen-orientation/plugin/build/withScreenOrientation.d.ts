@@ -15,10 +15,9 @@ type OrientationMasks = keyof typeof OrientationLock;
 interface ExpoConfigWithInitialOrientation extends ExpoConfig {
     initialOrientation?: OrientationMasks;
 }
-type Props = {
+export type Props = {
     initialOrientation?: keyof typeof OrientationLock;
 };
 export declare function setInitialOrientation(config: Pick<ExpoConfigWithInitialOrientation, 'initialOrientation'>, infoPlist: InfoPlist): InfoPlist;
-export declare const plugin: ConfigPlugin<void | Props>;
-declare const _default: (props?: Props) => [string, Props];
+declare const _default: ConfigPlugin<void | Props>;
 export default _default;

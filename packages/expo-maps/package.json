@@ -9,13 +9,11 @@
       "types": "./build/index.d.ts",
       "default": "./src/index.ts"
     },
-    "./plugin": {
-      "types": "./plugin/build/withMapsLocation.d.ts",
-      "default": "./plugin/build/withMapsLocation.js"
-    },
     "./package.json": "./package.json",
-    "./*": "./*.js",
-    "./*.js": "./*.js"
+    "./app.plugin": "./app.plugin.js",
+    "./app.plugin.js": "./app.plugin.js",
+    "./build/*": "./build/*.js",
+    "./plugin": "./plugin/build/index.js"
   },
   "scripts": {
     "build": "expo-module build",

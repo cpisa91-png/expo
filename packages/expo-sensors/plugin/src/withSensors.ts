@@ -8,7 +8,7 @@ import {
 const pkg = require('expo-sensors/package.json');
 const MOTION_USAGE = 'Allow $(PRODUCT_NAME) to access your device motion';
 
-type Props = {
+export type Props = {
   motionPermission?: string | false;
 };
 
@@ -27,6 +27,4 @@ const withSensors: ConfigPlugin<Props | void> = (config, { motionPermission } = 
   });
 };
 
-export const plugin = createRunOncePlugin(withSensors, pkg.name, pkg.version);
-
-export default (props: Props = {}): [string, Props] => [pkg.name, props];
+export default createRunOncePlugin(withSensors, pkg.name, pkg.version);

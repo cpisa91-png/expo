@@ -6,11 +6,11 @@ import {
   withXcodeProject,
 } from 'expo/config-plugins';
 
-import { Props, resolveConfigValue } from './pluginConfig';
+import { PluginConfigType, resolveConfigValue } from './pluginConfig';
 
 const { createBuildPodfilePropsConfigPlugin } = IOSConfig.BuildProperties;
 
-export const withIosBuildProperties = createBuildPodfilePropsConfigPlugin<Props>(
+export const withIosBuildProperties = createBuildPodfilePropsConfigPlugin<PluginConfigType>(
   [
     {
       propName: 'ios.useFrameworks',
@@ -53,7 +53,7 @@ export const withIosBuildProperties = createBuildPodfilePropsConfigPlugin<Props>
   'withIosBuildProperties'
 );
 
-export const withIosDeploymentTarget: ConfigPlugin<Props> = (config, props) => {
+export const withIosDeploymentTarget: ConfigPlugin<PluginConfigType> = (config, props) => {
   const deploymentTarget = props.ios?.deploymentTarget;
   if (!deploymentTarget) {
     return config;
@@ -68,7 +68,7 @@ export const withIosDeploymentTarget: ConfigPlugin<Props> = (config, props) => {
   return config;
 };
 
-export const withIosInfoPlist: ConfigPlugin<Props> = (config, props) => {
+export const withIosInfoPlist: ConfigPlugin<PluginConfigType> = (config, props) => {
   const reactNativeReleaseLevel = resolveConfigValue(props, 'ios', 'reactNativeReleaseLevel');
   if (reactNativeReleaseLevel) {
     config = withIosReactNativeReleaseLevel(config, { reactNativeReleaseLevel });
@@ -122,7 +122,7 @@ function updateDeploymentTargetXcodeProject(
   return project;
 }
 
-const withIosDeploymentTargetPodfile = createBuildPodfilePropsConfigPlugin<Props>(
+const withIosDeploymentTargetPodfile = createBuildPodfilePropsConfigPlugin<PluginConfigType>(
   [
     {
       propName: 'ios.deploymentTarget',

@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.plugin = void 0;
 const config_plugins_1 = require("expo/config-plugins");
 const pkg = require('expo-background-task/package.json');
 const withBackgroundTask = (config) => {
@@ -27,5 +26,4 @@ const withBackgroundTask = (config) => {
         return config;
     });
 };
-exports.plugin = (0, config_plugins_1.createRunOncePlugin)(withBackgroundTask, pkg.name, pkg.version);
-exports.default = () => pkg.name;
+exports.default = (0, config_plugins_1.createRunOncePlugin)(withBackgroundTask, pkg.name, pkg.version);

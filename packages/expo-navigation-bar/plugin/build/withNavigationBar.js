@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.plugin = exports.withAndroidNavigationBarExpoGoManifest = void 0;
+exports.withAndroidNavigationBarExpoGoManifest = void 0;
 exports.resolveProps = resolveProps;
 exports.setStrings = setStrings;
 exports.setNavigationBarStyles = setNavigationBarStyles;
@@ -146,5 +146,4 @@ function applyEnforceNavigationBarContrast(config, enforceNavigationBarContrast)
     ];
     return config;
 }
-exports.plugin = (0, config_plugins_1.createRunOncePlugin)(withNavigationBar, pkg.name, pkg.version);
-exports.default = (props = {}) => [pkg.name, props];
+exports.default = (0, config_plugins_1.createRunOncePlugin)(withNavigationBar, pkg.name, pkg.version);

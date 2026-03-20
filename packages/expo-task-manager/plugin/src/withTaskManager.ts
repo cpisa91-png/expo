@@ -16,6 +16,4 @@ const withTaskManager: ConfigPlugin = (config) => {
   return config;
 };
 
-export const plugin = createRunOncePlugin(withTaskManager, pkg.name, pkg.version);
-
-export default (): string => pkg.name;
+export default createRunOncePlugin(withTaskManager, pkg.name, pkg.version);

@@ -11,7 +11,7 @@ import {
 import { writeFileSync, unlinkSync, copyFileSync, existsSync, mkdirSync } from 'fs';
 import { basename, resolve, parse } from 'path';
 
-import { Props } from './withNotifications';
+import { NotificationsPluginProps } from './withNotifications';
 
 const { Colors } = AndroidConfig;
 
@@ -259,7 +259,7 @@ function writeNotificationSoundFile(soundFileRelativePath: string, projectRoot: 
   }
 }
 
-export const withNotificationsAndroid: ConfigPlugin<Props> = (
+export const withNotificationsAndroid: ConfigPlugin<NotificationsPluginProps> = (
   config,
   { icon = null, color = null, sounds = [], defaultChannel = null }
 ) => {

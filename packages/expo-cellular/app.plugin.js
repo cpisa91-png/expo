@@ -1,2 +1,1 @@
-const { plugin } = require('./plugin/build/withCellular');
-module.exports = plugin;
+module.exports = require('./plugin/build/withCellular');

@@ -5,17 +5,11 @@
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "exports": {
-    ".": {
-      "types": "./build/index.d.ts",
-      "default": "./build/index.js"
-    },
-    "./plugin": {
-      "types": "./plugin/build/withCamera.d.ts",
-      "default": "./plugin/build/withCamera.js"
-    },
+    ".": "./build/index.js",
     "./package.json": "./package.json",
-    "./*": "./*.js",
-    "./*.js": "./*.js"
+    "./app.plugin": "./app.plugin.js",
+    "./app.plugin.js": "./app.plugin.js",
+    "./plugin": "./plugin/build/index.js"
   },
   "sideEffects": false,
   "scripts": {

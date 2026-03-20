@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.plugin = void 0;
 const config_plugins_1 = require("expo/config-plugins");
 const pluginConfig_1 = require("./pluginConfig");
 const pkg = require('expo-dev-launcher/package.json');
@@ -91,7 +90,7 @@ const withLocalNetworkPermission = (config) => {
         return config;
     });
 };
-exports.plugin = (0, config_plugins_1.createRunOncePlugin)((config, props = {}) => {
+exports.default = (0, config_plugins_1.createRunOncePlugin)((config, props = {}) => {
     (0, pluginConfig_1.validateConfig)(props);
     const iOSLaunchMode = props.ios?.launchMode ??
         props.launchMode ??
@@ -118,4 +117,3 @@ exports.plugin = (0, config_plugins_1.createRunOncePlugin)((config, props = {}) 
     config = withStripLocalNetworkKeysForRelease(config);
     return config;
 }, pkg.name, pkg.version);
-exports.default = (props = {}) => [pkg.name, props];

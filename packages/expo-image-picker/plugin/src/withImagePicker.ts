@@ -23,7 +23,7 @@ type ImagePickerColors = {
   cropBackgroundColor?: string;
 };
 
-type Props = {
+export type Props = {
   photosPermission?: string | false;
   cameraPermission?: string | false;
   microphonePermission?: string | false;
@@ -133,6 +133,4 @@ const withImagePicker: ConfigPlugin<Props | void> = (
   return config;
 };
 
-export const plugin = createRunOncePlugin(withImagePicker, pkg.name, pkg.version);
-
-export default (props: Props = {}): [string, Props] => [pkg.name, props];
+export default createRunOncePlugin(withImagePicker, pkg.name, pkg.version);

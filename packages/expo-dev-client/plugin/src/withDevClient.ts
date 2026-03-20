@@ -1,21 +1,21 @@
 import type { ExpoConfig } from 'expo/config';
 import { createRunOncePlugin } from 'expo/config-plugins';
-import {
-  plugin as withDevLauncher,
-  type Props as DevLauncherPluginConfig,
-} from 'expo-dev-launcher/plugin';
-import { plugin as withDevMenu } from 'expo-dev-menu/plugin';
+// @ts-expect-error missing types
+import withDevLauncher from 'expo-dev-launcher/app.plugin';
+import type { PluginConfigType } from 'expo-dev-launcher/plugin';
+// @ts-expect-error missing types
+import withDevMenu from 'expo-dev-menu/app.plugin';
 
 import { withGeneratedAndroidScheme } from './withGeneratedAndroidScheme';
 import { withGeneratedIosScheme } from './withGeneratedIosScheme';
 
 const pkg = require('expo-dev-client/package.json');
 
-type Props = DevLauncherPluginConfig & {
+export type DevClientPluginConfigType = PluginConfigType & {
   addGeneratedScheme?: boolean;
 };
 
-function withDevClient(config: ExpoConfig, props: Props) {
+function withDevClient(config: ExpoConfig, props: DevClientPluginConfigType) {
   config = withDevMenu(config);
   config = withDevLauncher(config, props);
 
@@ -28,6 +28,4 @@ function withDevClient(config: ExpoConfig, props: Props) {
   return config;
 }
 
-export const plugin = createRunOncePlugin<Props>(withDevClient, pkg.name, pkg.version);
-
-export default (props: Props = {}): [string, Props] => [pkg.name, props];
+export default createRunOncePlugin<DevClientPluginConfigType>(withDevClient, pkg.name, pkg.version);

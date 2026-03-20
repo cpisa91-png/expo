@@ -5,7 +5,7 @@ const pkg = require('expo-tracking-transparency/package.json');
 const DEFAULT_NSUserTrackingUsageDescription =
   'Allow this app to collect app-related data that can be used for tracking you or your device.';
 
-type Props = {
+export type Props = {
   /**
    * Sets the iOS `NSUserTrackingUsageDescription` permission message in `Info.plist`. Omitting a
    * description will result in using the default permission message.
@@ -27,6 +27,4 @@ const withTrackingTransparency: ConfigPlugin<Props | void> = (config, props) => 
   ]);
 };
 
-export const plugin = createRunOncePlugin(withTrackingTransparency, pkg.name, pkg.version);
-
-export default (props: Props = {}): [string, Props] => [pkg.name, props];
+export default createRunOncePlugin(withTrackingTransparency, pkg.name, pkg.version);

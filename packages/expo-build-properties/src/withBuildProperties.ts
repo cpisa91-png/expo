@@ -10,16 +10,14 @@ import {
   withAndroidSettingsGradle,
 } from './android';
 import { withIosBuildProperties, withIosDeploymentTarget, withIosInfoPlist } from './ios';
-import { Props, validateConfig } from './pluginConfig';
-
-const pkg = require('expo-build-properties/package.json');
+import { PluginConfigType, validateConfig } from './pluginConfig';
 
 /**
  * Config plugin allowing customizing native Android and iOS build properties for managed apps.
  * @param config Expo config for application.
  * @param props Configuration for the build properties plugin.
  */
-export const withBuildProperties: ConfigPlugin<Props> = (config, props) => {
+export const withBuildProperties: ConfigPlugin<PluginConfigType> = (config, props) => {
   const projectRoot = config._internal?.projectRoot;
   const pluginConfig = validateConfig(props || {}, projectRoot);
 
@@ -45,6 +43,4 @@ export const withBuildProperties: ConfigPlugin<Props> = (config, props) => {
   return config;
 };
 
-export const plugin = withBuildProperties;
-
-export default (props: Props = {}): [string, Props] => [pkg.name, props];
+export default withBuildProperties;

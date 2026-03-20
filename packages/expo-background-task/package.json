@@ -5,17 +5,11 @@
   "main": "build/BackgroundTask.js",
   "types": "build/BackgroundTask.d.ts",
   "exports": {
-    ".": {
-      "types": "./build/BackgroundTask.d.ts",
-      "default": "./build/BackgroundTask.js"
-    },
-    "./plugin": {
-      "types": "./plugin/build/withBackgroundTask.d.ts",
-      "default": "./plugin/build/withBackgroundTask.js"
-    },
+    ".": "./build/BackgroundTask.js",
     "./package.json": "./package.json",
-    "./*": "./*.js",
-    "./*.js": "./*.js"
+    "./app.plugin": "./app.plugin.js",
+    "./app.plugin.js": "./app.plugin.js",
+    "./plugin": "./plugin/build/index.js"
   },
   "sideEffects": false,
   "scripts": {

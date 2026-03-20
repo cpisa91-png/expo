@@ -5,7 +5,7 @@ const pkg = require('expo-calendar/package.json');
 const CALENDARS_USAGE = 'Allow $(PRODUCT_NAME) to access your calendars';
 const REMINDERS_USAGE = 'Allow $(PRODUCT_NAME) to access your reminders';
 
-type Props = {
+export type Props = {
   calendarPermission?: string | false;
   remindersPermission?: string | false;
 };
@@ -32,6 +32,4 @@ const withCalendar: ConfigPlugin<Props | void> = (
   ]);
 };
 
-export const plugin = createRunOncePlugin(withCalendar, pkg.name, pkg.version);
-
-export default (props: Props = {}): [string, Props] => [pkg.name, props];
+export default createRunOncePlugin(withCalendar, pkg.name, pkg.version);

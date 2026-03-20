@@ -13,7 +13,7 @@ const MICROPHONE_USAGE = 'Allow $(PRODUCT_NAME) to access your microphone';
 const PLAYBACK_SERVICE_NAME = 'expo.modules.audio.service.AudioControlsService';
 const RECORDING_SERVICE_NAME = 'expo.modules.audio.service.AudioRecordingService';
 
-type Props = {
+export type Props = {
   microphonePermission?: string | false;
   recordAudioAndroid?: boolean;
   enableBackgroundRecording?: boolean;
@@ -123,6 +123,4 @@ const withAudio: ConfigPlugin<Props | void> = (
   return config;
 };
 
-export const plugin = createRunOncePlugin(withAudio, pkg.name, pkg.version);
-
-export default (props: Props = {}): [string, Props] => [pkg.name, props];
+export default createRunOncePlugin(withAudio, pkg.name, pkg.version);

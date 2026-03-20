@@ -7,12 +7,12 @@ import {
 
 const pkg = require('expo-file-system/package.json');
 
-type Props = {
+export type FileSystemProps = {
   supportsOpeningDocumentsInPlace?: boolean;
   enableFileSharing?: boolean;
 };
 
-const withFileSystem: ConfigPlugin<Props> = (config, options = {}) => {
+const withFileSystem: ConfigPlugin<FileSystemProps> = (config, options = {}) => {
   // Apply Android permissions
   config = AndroidConfig.Permissions.withPermissions(config, [
     'android.permission.READ_EXTERNAL_STORAGE',
@@ -32,6 +32,4 @@ const withFileSystem: ConfigPlugin<Props> = (config, options = {}) => {
   });
 };
 
-export const plugin = createRunOncePlugin(withFileSystem, pkg.name, pkg.version);
-
-export default (props: Props = {}): [string, Props] => [pkg.name, props];
+export default createRunOncePlugin(withFileSystem, pkg.name, pkg.version);

@@ -6,7 +6,7 @@ type ImagePickerColors = {
     cropBackButtonIconColor?: string;
     cropBackgroundColor?: string;
 };
-type Props = {
+export type Props = {
     photosPermission?: string | false;
     cameraPermission?: string | false;
     microphonePermission?: string | false;
@@ -16,6 +16,5 @@ type Props = {
     };
 };
 export declare const withAndroidImagePickerPermissions: ConfigPlugin<Props | void>;
-export declare const plugin: ConfigPlugin<void | Props>;
-declare const _default: (props?: Props) => [string, Props];
+declare const _default: ConfigPlugin<void | Props>;
 export default _default;

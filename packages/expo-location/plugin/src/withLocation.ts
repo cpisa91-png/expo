@@ -138,7 +138,7 @@ function removeForegroundServiceIconImageFiles(projectRoot: string) {
   });
 }
 
-type Props = {
+export type Props = {
   locationAlwaysAndWhenInUsePermission?: string | false;
   locationAlwaysPermission?: string | false;
   locationWhenInUsePermission?: string | false;
@@ -199,6 +199,4 @@ const withLocation: ConfigPlugin<Props | void> = (
   );
 };
 
-export const plugin = createRunOncePlugin(withLocation, pkg.name, pkg.version);
-
-export default (props: Props = {}): [string, Props] => [pkg.name, props];
+export default createRunOncePlugin(withLocation, pkg.name, pkg.version);

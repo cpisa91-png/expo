@@ -1,6 +1,6 @@
 import { ConfigPlugin, XcodeProject } from 'expo/config-plugins';
-import { Props } from './withNotifications';
-export declare const withNotificationsIOS: ConfigPlugin<Props>;
+import { NotificationsPluginProps } from './withNotifications';
+export declare const withNotificationsIOS: ConfigPlugin<NotificationsPluginProps>;
 /**
  * Save sound files to the Xcode project root and add them to the Xcode project.
  */

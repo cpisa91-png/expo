@@ -1,5 +1,4 @@
 import { ConfigPlugin } from 'expo/config-plugins';
-import { Props } from './withWebBrowserAndroid';
-export declare const plugin: ConfigPlugin<Props | null>;
-declare const _default: (props?: Props) => [string, Props];
+import { PluginConfig } from './withWebBrowserAndroid';
+declare const _default: ConfigPlugin<PluginConfig | null>;
 export default _default;

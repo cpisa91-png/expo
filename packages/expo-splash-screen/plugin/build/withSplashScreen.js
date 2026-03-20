@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.plugin = void 0;
 const withAndroidSplashScreen_1 = require("@expo/prebuild-config/build/plugins/unversioned/expo-splash-screen/withAndroidSplashScreen");
 const withIosSplashScreen_1 = require("@expo/prebuild-config/build/plugins/unversioned/expo-splash-screen/withIosSplashScreen");
 const config_plugins_1 = require("expo/config-plugins");
@@ -39,5 +38,4 @@ const withSplashScreen = (config, props) => {
     config = (0, withIosSplashScreen_1.withIosSplashScreen)(config, ios);
     return config;
 };
-exports.plugin = (0, config_plugins_1.createRunOncePlugin)(withSplashScreen, pkg.name, pkg.version);
-exports.default = (props = {}) => [pkg.name, props];
+exports.default = (0, config_plugins_1.createRunOncePlugin)(withSplashScreen, pkg.name, pkg.version);

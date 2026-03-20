@@ -35,7 +35,7 @@ const withMediaLibraryExternalStorage: ConfigPlugin = (config) => {
   });
 };
 
-type Props = {
+export type Props = {
   photosPermission?: string | false;
   savePhotosPermission?: string | false;
   isAccessMediaLocationEnabled?: boolean;
@@ -82,6 +82,4 @@ const withMediaLibrary: ConfigPlugin<Props | void> = (
   return withMediaLibraryExternalStorage(config);
 };
 
-export const plugin = createRunOncePlugin(withMediaLibrary, pkg.name, pkg.version);
-
-export default (props: Props = {}): [string, Props] => [pkg.name, props];
+export default createRunOncePlugin(withMediaLibrary, pkg.name, pkg.version);

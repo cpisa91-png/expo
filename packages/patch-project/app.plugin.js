@@ -1,2 +1,1 @@
-const { plugin } = require('./build/withPatchPlugin');
-module.exports = plugin;
+module.exports = require('./build/withPatchPlugin');

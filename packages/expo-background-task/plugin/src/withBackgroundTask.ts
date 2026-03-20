@@ -33,6 +33,4 @@ const withBackgroundTask: ConfigPlugin = (config) => {
   });
 };
 
-export const plugin = createRunOncePlugin(withBackgroundTask, pkg.name, pkg.version);
-
-export default (): string => pkg.name;
+export default createRunOncePlugin(withBackgroundTask, pkg.name, pkg.version);

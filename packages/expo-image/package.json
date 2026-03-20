@@ -10,13 +10,10 @@
       "types": "./build/index.d.ts",
       "default": "./src/index.ts"
     },
-    "./plugin": {
-      "types": "./plugin/build/withExpoImage.d.ts",
-      "default": "./plugin/build/withExpoImage.js"
-    },
     "./package.json": "./package.json",
-    "./*": "./*.js",
-    "./*.js": "./*.js"
+    "./app.plugin": "./app.plugin.js",
+    "./app.plugin.js": "./app.plugin.js",
+    "./plugin": "./plugin/build/index.js"
   },
   "sideEffects": false,
   "scripts": {

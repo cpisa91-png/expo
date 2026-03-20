@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.plugin = void 0;
 const config_plugins_1 = require("expo/config-plugins");
 const pkg = require('expo-camera/package.json');
 const CAMERA_USAGE = 'Allow $(PRODUCT_NAME) to access your camera';
@@ -34,5 +33,4 @@ const withCamera = (config, { cameraPermission, microphonePermission, recordAudi
     ].filter(Boolean));
     return config;
 };
-exports.plugin = (0, config_plugins_1.createRunOncePlugin)(withCamera, pkg.name, pkg.version);
-exports.default = (props = {}) => [pkg.name, props];
+exports.default = (0, config_plugins_1.createRunOncePlugin)(withCamera, pkg.name, pkg.version);

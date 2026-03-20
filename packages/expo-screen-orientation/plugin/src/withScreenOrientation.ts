@@ -25,7 +25,7 @@ interface ExpoConfigWithInitialOrientation extends ExpoConfig {
   initialOrientation?: OrientationMasks;
 }
 
-type Props = {
+export type Props = {
   initialOrientation?: keyof typeof OrientationLock;
 };
 
@@ -67,10 +67,4 @@ export function setInitialOrientation(
   return infoPlist;
 }
 
-export const plugin = createRunOncePlugin(
-  withScreenOrientationViewController,
-  pkg.name,
-  pkg.version
-);
-
-export default (props: Props = {}): [string, Props] => [pkg.name, props];
+export default createRunOncePlugin(withScreenOrientationViewController, pkg.name, pkg.version);

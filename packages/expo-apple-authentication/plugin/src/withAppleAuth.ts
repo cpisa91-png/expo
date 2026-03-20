@@ -9,6 +9,4 @@ const withAppleAuth: ConfigPlugin = (config) => {
   return config;
 };
 
-export const plugin = createRunOncePlugin(withAppleAuth, pkg.name, pkg.version);
-
-export default (): string => pkg.name;
+export default createRunOncePlugin(withAppleAuth, pkg.name, pkg.version);

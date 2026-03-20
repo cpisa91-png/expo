@@ -3,12 +3,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.plugin = void 0;
 exports.convertBcp47ToResourceQualifier = convertBcp47ToResourceQualifier;
 const config_plugins_1 = require("expo/config-plugins");
 const fs_1 = __importDefault(require("fs"));
 const path_1 = __importDefault(require("path"));
-const pkg = require('expo-localization/package.json');
 function convertBcp47ToResourceQualifier(locale) {
     return `b+${locale.replaceAll('-', '+')}`;
 }
@@ -110,7 +108,7 @@ function withExpoLocalizationAndroid(config, data) {
         return config;
     });
 }
-const plugin = (config, data = {}) => {
+function withExpoLocalization(config, data = {}) {
     // Ensure allowDynamicLocaleChangesAndroid defaults to true
     const normalizedData = {
         ...data,
@@ -120,6 +118,5 @@ const plugin = (config, data = {}) => {
         [withExpoLocalizationIos, normalizedData],
         [withExpoLocalizationAndroid, normalizedData],
     ]);
-};
-exports.plugin = plugin;
-exports.default = (props = {}) => [pkg.name, props];
+}
+exports.default = withExpoLocalization;

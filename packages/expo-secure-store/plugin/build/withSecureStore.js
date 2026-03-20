@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.plugin = void 0;
 const config_plugins_1 = require("expo/config-plugins");
 const pkg = require('expo-secure-store/package.json');
 const BACKUP_RULES_PATH = '@xml/secure_store_backup_rules';
@@ -35,5 +34,4 @@ const withSecureStore = (config, { faceIDPermission, configureAndroidBackup = tr
     });
     return config;
 };
-exports.plugin = (0, config_plugins_1.createRunOncePlugin)(withSecureStore, pkg.name, pkg.version);
-exports.default = (props = {}) => [pkg.name, props];
+exports.default = (0, config_plugins_1.createRunOncePlugin)(withSecureStore, pkg.name, pkg.version);

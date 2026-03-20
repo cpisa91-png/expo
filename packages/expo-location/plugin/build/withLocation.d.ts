@@ -16,7 +16,7 @@ export declare const withForegroundServiceIcon: ConfigPlugin<{
  * Applies foreground service icon configuration for expo-location
  */
 export declare function setForegroundServiceIconAsync(projectRoot: string, icon: string | null): Promise<void>;
-type Props = {
+export type Props = {
     locationAlwaysAndWhenInUsePermission?: string | false;
     locationAlwaysPermission?: string | false;
     locationWhenInUsePermission?: string | false;
@@ -25,6 +25,5 @@ type Props = {
     isAndroidForegroundServiceEnabled?: boolean;
     androidForegroundServiceIcon?: string;
 };
-export declare const plugin: ConfigPlugin<void | Props>;
-declare const _default: (props?: Props) => [string, Props];
+declare const _default: ConfigPlugin<void | Props>;
 export default _default;

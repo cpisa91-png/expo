@@ -16,7 +16,7 @@ export type FontObject = {
 
 export type Font = string | FontObject;
 
-export type Props = {
+export type FontProps = {
   fonts?: string[];
   android?: {
     fonts?: Font[];
@@ -26,7 +26,7 @@ export type Props = {
   };
 };
 
-const withFonts: ConfigPlugin<Props> = (config, props) => {
+const withFonts: ConfigPlugin<FontProps> = (config, props) => {
   if (!props) {
     return config;
   }
@@ -46,6 +46,4 @@ const withFonts: ConfigPlugin<Props> = (config, props) => {
   return config;
 };
 
-export const plugin = createRunOncePlugin(withFonts, pkg.name, pkg.version);
-
-export default (props: Props = {}): [string, Props] => [pkg.name, props];
+export default createRunOncePlugin(withFonts, pkg.name, pkg.version);

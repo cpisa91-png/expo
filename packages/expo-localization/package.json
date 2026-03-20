@@ -5,17 +5,11 @@
   "main": "build/Localization.js",
   "types": "build/Localization.d.ts",
   "exports": {
-    ".": {
-      "types": "./build/Localization.d.ts",
-      "default": "./build/Localization.js"
-    },
-    "./plugin": {
-      "types": "./plugin/build/withExpoLocalization.d.ts",
-      "default": "./plugin/build/withExpoLocalization.js"
-    },
+    ".": "./build/Localization.js",
     "./package.json": "./package.json",
-    "./*": "./*.js",
-    "./*.js": "./*.js"
+    "./app.plugin": "./app.plugin.js",
+    "./app.plugin.js": "./app.plugin.js",
+    "./plugin": "./plugin/build/index.js"
   },
   "sideEffects": false,
   "scripts": {

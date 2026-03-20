@@ -2,7 +2,7 @@ import { ConfigPlugin, createRunOncePlugin, withPodfileProperties } from 'expo/c
 
 const pkg = require('../../package.json');
 
-type Props = {
+export type Props = {
   /** Disable linking the included libdav1d decoder. Useful when another dependency already provides it. */
   disableLibdav1d?: boolean;
 };
@@ -16,6 +16,4 @@ const withExpoImage: ConfigPlugin<Props | void> = (config, props) => {
   });
 };
 
-export const plugin = createRunOncePlugin(withExpoImage, pkg.name, pkg.version);
-
-export default (props: Props = {}): [string, Props] => [pkg.name, props];
+export default createRunOncePlugin(withExpoImage, pkg.name, pkg.version);

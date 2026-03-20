@@ -1,2 +1,1 @@
-const { plugin } = require('./plugin/build/withAppleAuth');
-module.exports = plugin;
+module.exports = require('./plugin/build/withAppleAuth');

@@ -9,13 +9,10 @@
       "types": "./build/index.d.ts",
       "default": "./src/index.ts"
     },
-    "./plugin": {
-      "types": "./plugin/build/withNavigationBar.d.ts",
-      "default": "./plugin/build/withNavigationBar.js"
-    },
     "./package.json": "./package.json",
-    "./*": "./*.js",
-    "./*.js": "./*.js"
+    "./app.plugin": "./app.plugin.js",
+    "./app.plugin.js": "./app.plugin.js",
+    "./plugin": "./plugin/build/index.js"
   },
   "scripts": {
     "build": "expo-module build",

@@ -1,8 +1,7 @@
 import { ConfigPlugin } from 'expo/config-plugins';
-type Props = {
+export type FileSystemProps = {
     supportsOpeningDocumentsInPlace?: boolean;
     enableFileSharing?: boolean;
 };
-export declare const plugin: ConfigPlugin<Props>;
-declare const _default: (props?: Props) => [string, Props];
+declare const _default: ConfigPlugin<FileSystemProps>;
 export default _default;

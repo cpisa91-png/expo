@@ -1,2 +1,1 @@
-const { plugin } = require('./plugin/build/withSQLite');
-module.exports = plugin;
+module.exports = require('./plugin/build/withSQLite');

@@ -3,7 +3,7 @@ import { AndroidConfig, ConfigPlugin, IOSConfig, createRunOncePlugin } from 'exp
 const pkg = require('expo-maps/package.json');
 const LOCATION_USAGE = 'Allow $(PRODUCT_NAME) to access your location';
 
-type Props = {
+export type Props = {
   requestLocationPermission?: boolean;
   locationPermission?: string;
 };
@@ -28,6 +28,4 @@ const withMapsLocation: ConfigPlugin<Props | void> = (
   ]);
 };
 
-export const plugin = createRunOncePlugin(withMapsLocation, pkg.name, pkg.version);
-
-export default (props: Props = {}): [string, Props] => [pkg.name, props];
+export default createRunOncePlugin(withMapsLocation, pkg.name, pkg.version);

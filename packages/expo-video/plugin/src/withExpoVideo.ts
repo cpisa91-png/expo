@@ -5,14 +5,12 @@ import {
   withAndroidManifest,
 } from 'expo/config-plugins';
 
-const pkg = require('expo-video/package.json');
-
-type Props = {
+export type WithExpoVideoOptions = {
   supportsBackgroundPlayback?: boolean;
   supportsPictureInPicture?: boolean;
 };
 
-export const plugin: ConfigPlugin<Props> = (
+const withExpoVideo: ConfigPlugin<WithExpoVideoOptions> = (
   config,
   { supportsBackgroundPlayback, supportsPictureInPicture } = {}
 ) => {
@@ -100,4 +98,4 @@ export const plugin: ConfigPlugin<Props> = (
   return config;
 };
 
-export default (props: Props = {}): [string, Props] => [pkg.name, props];
+export default withExpoVideo;

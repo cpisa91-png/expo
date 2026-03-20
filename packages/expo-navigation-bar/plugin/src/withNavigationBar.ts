@@ -249,6 +249,4 @@ export function applyEnforceNavigationBarContrast(
   return config;
 }
 
-export const plugin = createRunOncePlugin(withNavigationBar, pkg.name, pkg.version);
-
-export default (props: Props = {}): [string, Props] => [pkg.name, props];
+export default createRunOncePlugin(withNavigationBar, pkg.name, pkg.version);

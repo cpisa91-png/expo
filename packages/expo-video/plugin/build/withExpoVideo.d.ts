@@ -1,8 +1,7 @@
 import { type ConfigPlugin } from 'expo/config-plugins';
-type Props = {
+export type WithExpoVideoOptions = {
     supportsBackgroundPlayback?: boolean;
     supportsPictureInPicture?: boolean;
 };
-export declare const plugin: ConfigPlugin<Props>;
-declare const _default: (props?: Props) => [string, Props];
-export default _default;
+declare const withExpoVideo: ConfigPlugin<WithExpoVideoOptions>;
+export default withExpoVideo;

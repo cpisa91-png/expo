@@ -1,5 +1,5 @@
 import { ConfigPlugin } from 'expo/config-plugins';
-interface Props {
+export interface Props {
     customBuildFlags?: string;
     enableFTS?: boolean;
     useSQLCipher?: boolean;
@@ -21,6 +21,5 @@ interface Props {
         withSQLiteVecExtension?: boolean;
     };
 }
-export declare const plugin: ConfigPlugin<Props>;
-declare const _default: (props?: Props) => [string, Props];
+declare const _default: ConfigPlugin<Props>;
 export default _default;

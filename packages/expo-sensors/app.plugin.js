@@ -1,2 +1,1 @@
-const { plugin } = require('./plugin/build/withSensors');
-module.exports = plugin;
+module.exports = require('./plugin/build/withSensors');

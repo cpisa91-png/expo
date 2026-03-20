@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.plugin = exports.withAndroidImagePickerPermissions = void 0;
+exports.withAndroidImagePickerPermissions = void 0;
 const config_plugins_1 = require("expo/config-plugins");
 const { Colors } = config_plugins_1.AndroidConfig;
 const pkg = require('expo-image-picker/package.json');
@@ -78,5 +78,4 @@ const withImagePicker = (config, { photosPermission, cameraPermission, microphon
     });
     return config;
 };
-exports.plugin = (0, config_plugins_1.createRunOncePlugin)(withImagePicker, pkg.name, pkg.version);
-exports.default = (props = {}) => [pkg.name, props];
+exports.default = (0, config_plugins_1.createRunOncePlugin)(withImagePicker, pkg.name, pkg.version);

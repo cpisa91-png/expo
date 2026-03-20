@@ -1,10 +1,10 @@
 import { ConfigPlugin, createRunOncePlugin } from 'expo/config-plugins';
 
-import { withWebBrowserAndroid, Props } from './withWebBrowserAndroid';
+import { withWebBrowserAndroid, PluginConfig } from './withWebBrowserAndroid';
 
 const pkg = require('expo-web-browser/package.json');
 
-const withWebBrowser: ConfigPlugin<Props | null> = (config, props) => {
+const withWebBrowser: ConfigPlugin<PluginConfig | null> = (config, props) => {
   if (!props) {
     return config;
   }
@@ -16,6 +16,4 @@ const withWebBrowser: ConfigPlugin<Props | null> = (config, props) => {
   return withWebBrowserAndroid(config);
 };
 
-export const plugin = createRunOncePlugin(withWebBrowser, pkg.name, pkg.version);
-
-export default (props: Props = {}): [string, Props] => [pkg.name, props];
+export default createRunOncePlugin(withWebBrowser, pkg.name, pkg.version);

@@ -4,7 +4,7 @@ const pkg = require('expo-contacts/package.json');
 
 const CONTACTS_USAGE = 'Allow $(PRODUCT_NAME) to access your contacts';
 
-type Props = {
+export type Props = {
   contactsPermission?: string;
 };
 
@@ -21,6 +21,4 @@ const withContacts: ConfigPlugin<Props | void> = (config, { contactsPermission }
   ]);
 };
 
-export const plugin = createRunOncePlugin(withContacts, pkg.name, pkg.version);
-
-export default (props: Props = {}): [string, Props] => [pkg.name, props];
+export default createRunOncePlugin(withContacts, pkg.name, pkg.version);

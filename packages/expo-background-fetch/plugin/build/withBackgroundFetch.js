@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.plugin = void 0;
 const config_plugins_1 = require("expo/config-plugins");
 const pkg = require('expo-background-fetch/package.json');
 const withBackgroundFetch = (config) => {
@@ -19,5 +18,4 @@ const withBackgroundFetch = (config) => {
         'android.permission.WAKE_LOCK',
     ]);
 };
-exports.plugin = (0, config_plugins_1.createRunOncePlugin)(withBackgroundFetch, pkg.name, pkg.version);
-exports.default = () => pkg.name;
+exports.default = (0, config_plugins_1.createRunOncePlugin)(withBackgroundFetch, pkg.name, pkg.version);

@@ -6,17 +6,12 @@
   "main": "build/index.js",
   "types": "build/index.d.ts",
   "exports": {
-    ".": {
-      "types": "./build/index.d.ts",
-      "default": "./build/index.js"
-    },
-    "./plugin": {
-      "types": "./plugin/build/withExpoVideo.d.ts",
-      "default": "./plugin/build/withExpoVideo.js"
-    },
+    ".": "./build/index.js",
     "./package.json": "./package.json",
-    "./*": "./*.js",
-    "./*.js": "./*.js"
+    "./app.plugin": "./app.plugin.js",
+    "./app.plugin.js": "./app.plugin.js",
+    "./build/*": "./build/*.js",
+    "./plugin": "./plugin/build/index.js"
   },
   "sideEffects": false,
   "scripts": {

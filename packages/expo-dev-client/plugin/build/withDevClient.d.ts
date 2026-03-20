@@ -1,7 +1,6 @@
-import { type Props as DevLauncherPluginConfig } from 'expo-dev-launcher/plugin';
-type Props = DevLauncherPluginConfig & {
+import type { PluginConfigType } from 'expo-dev-launcher/plugin';
+export type DevClientPluginConfigType = PluginConfigType & {
     addGeneratedScheme?: boolean;
 };
-export declare const plugin: import("expo/config-plugins").ConfigPlugin<Props>;
-declare const _default: (props?: Props) => [string, Props];
+declare const _default: import("expo/config-plugins").ConfigPlugin<DevClientPluginConfigType>;
 export default _default;

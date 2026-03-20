@@ -8,7 +8,7 @@ import {
 
 const pkg = require('expo-sqlite/package.json');
 
-interface Props {
+export interface Props {
   customBuildFlags?: string;
   enableFTS?: boolean;
   useSQLCipher?: boolean;
@@ -142,6 +142,4 @@ function updateIOSBuildPropertyIfNeeded(
   return properties;
 }
 
-export const plugin = createRunOncePlugin(withSQLite, pkg.name, pkg.version);
-
-export default (props: Props = {}): [string, Props] => [pkg.name, props];
+export default createRunOncePlugin(withSQLite, pkg.name, pkg.version);

@@ -1,5 +1,5 @@
 import { ConfigPlugin } from 'expo/config-plugins';
-type Props = {
+export type Props = {
     /**
      * Sets the iOS `NSUserTrackingUsageDescription` permission message in `Info.plist`. Omitting a
      * description will result in using the default permission message.
@@ -8,6 +8,5 @@ type Props = {
      */
     userTrackingPermission?: string | false;
 };
-export declare const plugin: ConfigPlugin<void | Props>;
-declare const _default: (props?: Props) => [string, Props];
+declare const _default: ConfigPlugin<void | Props>;
 export default _default;

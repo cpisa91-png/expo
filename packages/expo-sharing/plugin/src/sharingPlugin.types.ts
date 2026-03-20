@@ -72,7 +72,7 @@ export type ActivationRuleOptions = {
 };
 export type ActivationRule = ActivationRuleOptions | string;
 
-export type Props = {
+export type ShareExtensionConfigPluginProps = {
   ios?: {
     enabled?: boolean;
     extensionBundleIdentifier?: string;

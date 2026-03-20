@@ -26,6 +26,4 @@ const withBackgroundFetch: ConfigPlugin = (config) => {
   ]);
 };
 
-export const plugin = createRunOncePlugin(withBackgroundFetch, pkg.name, pkg.version);
-
-export default (): string => pkg.name;
+export default createRunOncePlugin(withBackgroundFetch, pkg.name, pkg.version);

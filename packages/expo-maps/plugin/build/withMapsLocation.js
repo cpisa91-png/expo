@@ -1,6 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.plugin = void 0;
 const config_plugins_1 = require("expo/config-plugins");
 const pkg = require('expo-maps/package.json');
 const LOCATION_USAGE = 'Allow $(PRODUCT_NAME) to access your location';
@@ -19,5 +18,4 @@ const withMapsLocation = (config, { requestLocationPermission, locationPermissio
         'android.permission.ACCESS_FINE_LOCATION',
     ]);
 };
-exports.plugin = (0, config_plugins_1.createRunOncePlugin)(withMapsLocation, pkg.name, pkg.version);
-exports.default = (props = {}) => [pkg.name, props];
+exports.default = (0, config_plugins_1.createRunOncePlugin)(withMapsLocation, pkg.name, pkg.version);

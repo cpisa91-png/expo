@@ -5,7 +5,7 @@ import { withNotificationsIOS } from './withNotificationsIOS';
 
 const pkg = require('expo-notifications/package.json');
 
-export type Props = {
+export type NotificationsPluginProps = {
   /**
    * Local path to an image to use as the icon for push notifications.
    * 96x96 all-white png with transparency. We recommend following
@@ -45,12 +45,10 @@ export type Props = {
   enableBackgroundRemoteNotifications?: boolean;
 };
 
-const withNotifications: ConfigPlugin<Props | void> = (config, props) => {
+const withNotifications: ConfigPlugin<NotificationsPluginProps | void> = (config, props) => {
   config = withNotificationsAndroid(config, props || {});
   config = withNotificationsIOS(config, props || {});
   return config;
 };
 
-export const plugin = createRunOncePlugin(withNotifications, pkg.name, pkg.version);
-
-export default (props: Props = {}): [string, Props] => [pkg.name, props];
+export default createRunOncePlugin(withNotifications, pkg.name, pkg.version);
