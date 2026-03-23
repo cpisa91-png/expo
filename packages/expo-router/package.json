@@ -83,7 +83,6 @@
   "peerDependencies": {
     "@expo/metro-runtime": "^55.0.6",
     "@expo/log-box": "55.0.7",
-    "@react-navigation/drawer": "^7.9.4",
     "@testing-library/react-native": ">= 13.2.0",
     "expo": "*",
     "expo-constants": "^55.0.7",
@@ -116,15 +115,9 @@
     },
     "react-server-dom-webpack": {
       "optional": true
-    },
-    "@react-navigation/drawer": {
-      "optional": true
     }
   },
   "devDependencies": {
-    "@react-navigation/core": "^7.16.1",
-    "@react-navigation/drawer": "^7.9.4",
-    "@react-navigation/routers": "^7.5.3",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/react": "^16.3.0",
     "@testing-library/react-native": "^13.3.0",
@@ -150,9 +143,6 @@
     "@expo/schema-utils": "^55.0.2",
     "@radix-ui/react-slot": "^1.2.0",
     "@radix-ui/react-tabs": "^1.1.12",
-    "@react-navigation/bottom-tabs": "^7.15.5",
-    "@react-navigation/native": "^7.1.33",
-    "@react-navigation/native-stack": "^7.14.5",
     "client-only": "^0.0.1",
     "color": "^4.2.3",
     "debug": "^4.3.4",

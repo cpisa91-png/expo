@@ -1,6 +1,6 @@
 'use client';
 
-import { NavigationProp, useNavigation, useStateForPath } from '@react-navigation/native';
+import { NavigationProp, useNavigation, useStateForPath } from './react-navigation/native';
 import type { LoaderFunction } from 'expo-server';
 import React, { use, useMemo } from 'react';
 
