@@ -11,7 +11,6 @@
       "default": "./src/index.ts"
     },
     "./package.json": "./package.json",
-    "./app.plugin": "./app.plugin.js",
     "./app.plugin.js": "./app.plugin.js",
     "./build/*": "./build/*.js",
     "./plugin": "./plugin/build/index.js"

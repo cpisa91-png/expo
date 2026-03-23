@@ -7,7 +7,6 @@
   "exports": {
     ".": "./build/src/index.js",
     "./package.json": "./package.json",
-    "./app.plugin": "./app.plugin.js",
     "./app.plugin.js": "./app.plugin.js",
     "./build/*": "./build/*.js",
     "./plugin": "./plugin/build/index.js"

@@ -2,12 +2,11 @@
   "name": "expo-splash-screen",
   "version": "55.0.9",
   "description": "Provides a module to allow keeping the native Splash Screen visible until you choose to hide it.",
-  "main": "build/index.js",
-  "types": "build/index.d.ts",
+  "main": "build",
+  "types": "build",
   "exports": {
     ".": "./build/index.js",
     "./package.json": "./package.json",
-    "./app.plugin": "./app.plugin.js",
     "./app.plugin.js": "./app.plugin.js",
     "./build/*": "./build/*.js",
     "./plugin": "./plugin/build/index.js"

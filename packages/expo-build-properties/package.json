@@ -7,7 +7,6 @@
   "exports": {
     ".": "./build/withBuildProperties.js",
     "./package.json": "./package.json",
-    "./app.plugin": "./app.plugin.js",
     "./app.plugin.js": "./app.plugin.js",
     "./plugin": "./build/index.js"
   },
