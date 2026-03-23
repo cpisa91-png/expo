@@ -9,6 +9,7 @@
     "./package.json": "./package.json",
     "./app.plugin": "./app.plugin.js",
     "./app.plugin.js": "./app.plugin.js",
+    "./build/*": "./build/*.js",
     "./next": "./build/next/index.js",
     "./plugin": "./plugin/build/index.js"
   },
