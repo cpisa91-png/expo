@@ -16,10 +16,6 @@
     "./legacy": {
       "types": "./build/legacy/index.d.ts",
       "default": "./src/legacy/index.ts"
-    },
-    "./next": {
-      "types": "./build/index.d.ts",
-      "default": "./src/index.ts"
     }
   },
   "sideEffects": false,
