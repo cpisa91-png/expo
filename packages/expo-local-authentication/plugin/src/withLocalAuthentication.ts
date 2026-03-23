@@ -4,6 +4,11 @@ const pkg = require('expo-local-authentication/package.json');
 const FACE_ID_USAGE = 'Allow $(PRODUCT_NAME) to use Face ID';
 
 export type Props = {
+  /**
+   * A string to set the `NSFaceIDUsageDescription` permission message.
+   * @default "Allow $(PRODUCT_NAME) to use Face ID"
+   * @platform ios
+   */
   faceIDPermission?: string | false;
 };
 

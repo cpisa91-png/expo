@@ -26,6 +26,10 @@ interface ExpoConfigWithInitialOrientation extends ExpoConfig {
 }
 
 export type Props = {
+  /**
+   * The iOS initial screen orientation. Accepts `DEFAULT`, `ALL`, `PORTRAIT`, `PORTRAIT_UP`, `PORTRAIT_DOWN`, `LANDSCAPE`, `LANDSCAPE_LEFT`, `LANDSCAPE_RIGHT`.
+   * @platform ios
+   */
   initialOrientation?: keyof typeof OrientationLock;
 };
 

@@ -5,6 +5,11 @@ const pkg = require('expo-contacts/package.json');
 const CONTACTS_USAGE = 'Allow $(PRODUCT_NAME) to access your contacts';
 
 export type Props = {
+  /**
+   * A string to set the `NSContactsUsageDescription` permission message.
+   * @default "Allow $(PRODUCT_NAME) to access your contacts"
+   * @platform ios
+   */
   contactsPermission?: string;
 };
 

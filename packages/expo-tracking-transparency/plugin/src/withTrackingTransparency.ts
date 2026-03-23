@@ -11,6 +11,7 @@ export type Props = {
    * description will result in using the default permission message.
    * @default 'Allow this app to collect app-related data that can be used for tracking you or your
    * device.'
+   * @platform ios
    */
   userTrackingPermission?: string | false;
 };

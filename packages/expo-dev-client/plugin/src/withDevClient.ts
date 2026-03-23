@@ -12,6 +12,10 @@ import { withGeneratedIosScheme } from './withGeneratedIosScheme';
 const pkg = require('expo-dev-client/package.json');
 
 export type DevClientPluginConfigType = PluginConfigType & {
+  /**
+   * Whether to register a custom URL scheme to open a project.
+   * @default true
+   */
   addGeneratedScheme?: boolean;
 };
 

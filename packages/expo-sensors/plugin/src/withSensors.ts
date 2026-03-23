@@ -9,6 +9,11 @@ const pkg = require('expo-sensors/package.json');
 const MOTION_USAGE = 'Allow $(PRODUCT_NAME) to access your device motion';
 
 export type Props = {
+  /**
+   * A string to set the `NSMotionUsageDescription` permission message, or `false` to disable.
+   * @default "Allow $(PRODUCT_NAME) to access your device motion"
+   * @platform ios
+   */
   motionPermission?: string | false;
 };
 
