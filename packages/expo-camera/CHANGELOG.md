@@ -11,7 +11,7 @@
 ### 🐛 Bug fixes
 
 - [Web] Fix `isAvailableAsync` returning `true` on devices without a camera. ([#43932](https://github.com/expo/expo/pull/43932) by [@alanjhughes](https://github.com/alanjhughes))
-- [iOS] Fix orientation issue caused by upstream changes.
+- [iOS] Fix orientation issue caused by upstream changes. ([#44171](https://github.com/expo/expo/pull/44171) by [@alanjhughes](https://github.com/alanjhughes))
 
 ### 💡 Others
 
