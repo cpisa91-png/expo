@@ -4,6 +4,7 @@
 
 #ifdef __cplusplus
 #import <ReactCommon/RCTHost.h>
+#import <jsi/jsi.h>
 #endif
 
 /**
@@ -23,4 +24,3 @@ NS_SWIFT_NAME(ExpoHostWrapper)
 - (nullable NSURL *)bundleURL;
 
 @end
-
