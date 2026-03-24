@@ -62,6 +62,7 @@
     "expo-insights": "~55.0.10",
     "expo-network-addons": "~55.0.8",
     "expo-notifications": "~55.0.10",
+    "expo-rust-jsi": "*",
     "expo-router": "~55.0.2",
     "expo-splash-screen": "~55.0.9",
     "lottie-react-native": "^7.3.4",
