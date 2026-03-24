@@ -73,25 +73,20 @@ open class InternalModuleDefinitionBuilder(
   }
 
   /**
-   * Registers an optimized function (iOS-style DSL).
-   * This is called by generated extension functions.
-   *
-   * @suppress This is a public API only for generated code to call.
+   * Registers an optimized function using a descriptor from generated code.
+   * Usage: `Function("addNumbers", addNumbers())`
    */
-  fun registerOptimizedFunction(
-    jsName: String,
-    kotlinMethodName: String,
-    jniSignature: String,
-    paramTypes: Array<String>,
-    returnType: String
+  fun Function(
+    name: String,
+    descriptor: expo.modules.kotlin.functions.OptimizedFunctionDescriptor
   ) {
     optimizedFunctions.add(
       OptimizedFunctionMetadata(
-        jsName = jsName,
-        kotlinMethodName = kotlinMethodName,
-        jniSignature = jniSignature,
-        paramTypes = paramTypes,
-        returnType = returnType
+        jsName = name,
+        kotlinMethodName = descriptor.kotlinMethodName,
+        jniSignature = descriptor.jniSignature,
+        paramTypes = descriptor.paramTypes,
+        returnType = descriptor.returnType
       )
     )
   }

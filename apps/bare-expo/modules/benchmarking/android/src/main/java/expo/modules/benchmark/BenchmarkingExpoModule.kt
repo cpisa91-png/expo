@@ -17,9 +17,7 @@ class BenchmarkingExpoModule : Module() {
       a + b
     }
 
-    // NEW: iOS-style DSL for optimized functions!
-    // Just call the function - generated extension handles everything
-    addNumbersOptimized()
+    Function("addNumbersOptimized", addNumbersOptimized())
 
     Function("addStrings") { a: String, b: String ->
       a + b
@@ -30,7 +28,7 @@ class BenchmarkingExpoModule : Module() {
     }
   }
 
-  @OptimizedFunction("addNumbersOptimized")
+  @OptimizedFunction
   fun addNumbersOptimized(a: Double, b: Double): Double {
     return a + b
   }

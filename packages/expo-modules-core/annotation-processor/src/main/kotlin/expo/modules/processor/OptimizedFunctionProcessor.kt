@@ -38,15 +38,9 @@ class OptimizedFunctionProcessor(
         val kotlinFunctionName = function.simpleName.asString()
         val packageName = function.packageName.asString()
 
-        // Extract the JS function name from the annotation
-        val annotation = function.annotations.first {
-            it.shortName.asString() == "OptimizedFunction"
-        }
-        val jsFunctionName = annotation.arguments.firstOrNull {
-            it.name?.asString() == "name"
-        }?.value as? String ?: throw IllegalStateException(
-            "@OptimizedFunction requires 'name' parameter for $moduleName.$kotlinFunctionName"
-        )
+        // The JS function name is supplied via the DSL: Function("jsName", descriptor)
+        // The annotation is a simple marker — use the Kotlin function name for the descriptor.
+        val jsFunctionName = kotlinFunctionName
 
         logger.info("Processing @OptimizedFunction: $moduleName.$kotlinFunctionName (JS: $jsFunctionName)")
 

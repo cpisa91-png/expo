@@ -1,37 +1,53 @@
 package expo.modules.kotlin.functions
 
 /**
- * Marks a function for optimized code generation using KSP.
+ * Marks a method for optimized code generation.
  *
  * Functions annotated with @OptimizedFunction use JNI reflection with a shared C++ dispatcher,
  * bypassing the runtime boxing/unboxing overhead of the standard DSL approach.
  *
- * This is particularly beneficial for functions with primitive parameter types (Double, Int, Boolean)
- * that are called frequently (e.g., in animations, game loops, or data processing).
- *
- * Usage (iOS-style API):
+ * Usage:
  * ```kotlin
  * class MyModule : Module() {
+ *   @OptimizedFunction
+ *   fun addNumbers(a: Double, b: Double): Double = a + b
+ *
  *   override fun definition() = ModuleDefinition {
  *     Name("MyModule")
- *
- *     // Just call the function - generated extension handles registration!
- *     addNumbers()
- *   }
- *
- *   @OptimizedFunction("addNumbers")
- *   fun addNumbers(a: Double, b: Double): Double {
- *     return a + b
+ *     Function("addNumbers", addNumbers())
  *   }
  * }
  * ```
- *
- * @property name The function name exposed to JavaScript (REQUIRED)
- * @property async Whether this is an async function (default: false, not yet supported)
  */
 @Target(AnnotationTarget.FUNCTION)
 @Retention(AnnotationRetention.BINARY)
-annotation class OptimizedFunction(
-    val name: String,
-    val async: Boolean = false
-)
+annotation class OptimizedFunction
+
+/**
+ * A lightweight descriptor carrying the optimized function metadata.
+ * The JS-facing name is supplied separately via the `Function("name", descriptor)` overload.
+ */
+data class OptimizedFunctionDescriptor(
+  val kotlinMethodName: String,
+  val jniSignature: String,
+  val paramTypes: Array<String>,
+  val returnType: String
+) {
+  override fun equals(other: Any?): Boolean {
+    if (this === other) return true
+    if (javaClass != other?.javaClass) return false
+    other as OptimizedFunctionDescriptor
+    return kotlinMethodName == other.kotlinMethodName &&
+      jniSignature == other.jniSignature &&
+      paramTypes.contentEquals(other.paramTypes) &&
+      returnType == other.returnType
+  }
+
+  override fun hashCode(): Int {
+    var result = kotlinMethodName.hashCode()
+    result = 31 * result + jniSignature.hashCode()
+    result = 31 * result + paramTypes.contentHashCode()
+    result = 31 * result + returnType.hashCode()
+    return result
+  }
+}
